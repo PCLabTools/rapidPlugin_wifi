@@ -1,5 +1,5 @@
 /**
- * @file rapidPlugin_template.h
+ * @file rapidPlugin_wifi.h
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -9,15 +9,15 @@
  * 
  */
 
-#ifndef rapidPlugin_template_h
-#define rapidPlugin_template_h
+#ifndef rapidPlugin_wifi_h
+#define rapidPlugin_wifi_h
 
-#ifndef rapidPlugin_template_stack_size
-#define rapidPlugin_template_stack_size 64
+#ifndef rapidPlugin_wifi_stack_size
+#define rapidPlugin_wifi_stack_size 64
 #endif
 
-#ifndef rapidPlugin_template_interface_stack_size
-#define rapidPlugin_template_interface_stack_size 256
+#ifndef rapidPlugin_wifi_interface_stack_size
+#define rapidPlugin_wifi_interface_stack_size 256
 #endif
 
 #include "rapidRTOS.h"
@@ -26,10 +26,10 @@
  * @brief rapidPlugin top level description
  * 
  */
-class rapidPlugin_template : public rapidPlugin
+class rapidPlugin_wifi : public rapidPlugin
 {
   public:
-    rapidPlugin_template(const char* identity);
+    rapidPlugin_wifi(const char* identity);
     BaseType_t run();
     BaseType_t runCore(BaseType_t core);
 
@@ -39,11 +39,11 @@ class rapidPlugin_template : public rapidPlugin
 };
 
 /**
- * @brief Construct a new rapidPlugin_template object
+ * @brief Construct a new rapidPlugin_wifi object
  * 
  * @param identity string literal containing task name
  */
-rapidPlugin_template::rapidPlugin_template(const char* identity)
+rapidPlugin_wifi::rapidPlugin_wifi(const char* identity)
 {
   _pID = identity;
 }
@@ -54,9 +54,9 @@ rapidPlugin_template::rapidPlugin_template(const char* identity)
  * 
  * @return BaseType_t 1 = task run successful | 0 = task failed to start
  */
-BaseType_t rapidPlugin_template::run()
+BaseType_t rapidPlugin_wifi::run()
 {
-  return rapidPlugin::run(&main_loop, rapidPlugin_template_stack_size, rapidPlugin_template_interface_stack_size);
+  return rapidPlugin::run(&main_loop, rapidPlugin_wifi_stack_size, rapidPlugin_wifi_interface_stack_size);
 }
 
 /**
@@ -67,20 +67,20 @@ BaseType_t rapidPlugin_template::run()
  * @param core core ID
  * @return BaseType_t 1 = task run successful | 0 = task failed to start
  */
-BaseType_t rapidPlugin_template::runCore(BaseType_t core)
+BaseType_t rapidPlugin_wifi::runCore(BaseType_t core)
 {
-  return rapidPlugin::runCore(core, &main_loop, rapidPlugin_template_stack_size, rapidPlugin_template_interface_stack_size);
+  return rapidPlugin::runCore(core, &main_loop, rapidPlugin_wifi_stack_size, rapidPlugin_wifi_interface_stack_size);
 }
 
-#ifndef rapidPlugin_template_override_main_loop
+#ifndef rapidPlugin_wifi_override_main_loop
 /**
  * @brief main loop task
  * 
  * @param pModule pointer to the calling object
  */
-void rapidPlugin_template::main_loop(void* pModule)
+void rapidPlugin_wifi::main_loop(void* pModule)
 {
-  rapidPlugin_template* plugin = (rapidPlugin_template*)pModule;
+  rapidPlugin_wifi* plugin = (rapidPlugin_wifi*)pModule;
   for ( ;; )
   {
     // do something here
@@ -89,7 +89,7 @@ void rapidPlugin_template::main_loop(void* pModule)
 }
 #endif
 
-#ifndef rapidPlugin_template_override_interface
+#ifndef rapidPlugin_wifi_override_interface
 /**
  * @brief Interface handler extended functions.
  * This function is to be used for creating custom states 
@@ -99,7 +99,7 @@ void rapidPlugin_template::main_loop(void* pModule)
  * @param messageBuffer buffer to store return message
  * @return uint8_t return 0 if the function was handled, 1 if not
  */
-uint8_t rapidPlugin_template::interface(rapidFunction incoming, char messageBuffer[])
+uint8_t rapidPlugin_wifi::interface(rapidFunction incoming, char messageBuffer[])
 {
   do
   {
@@ -118,6 +118,6 @@ uint8_t rapidPlugin_template::interface(rapidFunction incoming, char messageBuff
 }
 #endif
 
-#include "template.h"
+#include "wifi.h"
 
-#endif // rapidPlugin_template_h
+#endif // rapidPlugin_wifi_h

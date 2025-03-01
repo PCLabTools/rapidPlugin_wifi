@@ -39,14 +39,14 @@ except:
   report = ''
   info = '[info] '
 
-print(report + 'running rapidPlugin_template \'build.py\'...')
+print(report + 'running rapidPlugin_wifi \'build.py\'...')
 
 try:
   exec(open('create_dependencies.py').read())
   exec(open('modify_errors.py').read())
 
-  print(report + 'rapidPlugin_template \'build.py\' complete')
+  print(report + 'rapidPlugin_wifi \'build.py\' complete')
 
 except:
-  print(error + 'rapidPlugin_template \'build.py\' failed')
+  print(error + 'rapidPlugin_wifi \'build.py\' failed')
   raise

@@ -1,7 +1,7 @@
-FILEPATH_DEPENDENCY_H = project_path + '/include/template.h'
+FILEPATH_DEPENDENCY_H = project_path + '/include/wifi.h'
 
 contents = '''/**
- * @file template.h
+ * @file wifi.h
  * @author your name (you@domain.com)
  * @brief 
  * @version 0.1
@@ -11,25 +11,25 @@ contents = '''/**
  * 
  */
 
-// #define rapidPlugin_template_override_main_loop
-// #define rapidPlugin_template_override_interface
+// #define rapidPlugin_wifi_override_main_loop
+// #define rapidPlugin_wifi_override_interface
 
-#ifndef template_h
-#define template_h
+#ifndef wifi_h
+#define wifi_h
 
 #include "errors.h"
 
-#include "rapidPlugin_template.h"
+#include "rapidPlugin_wifi.h"
 
-#ifdef rapidPlugin_template_override_main_loop
+#ifdef rapidPlugin_wifi_override_main_loop
 /**
  * @brief main loop task
  * 
  * @param pModule pointer to the calling object
  */
-void rapidPlugin_template::main_loop(void* pModule)
+void rapidPlugin_wifi::main_loop(void* pModule)
 {
-  rapidPlugin_template* plugin = (rapidPlugin_template*)pModule;
+  rapidPlugin_wifi* plugin = (rapidPlugin_wifi*)pModule;
   for ( ;; )
   {
     // do something here
@@ -38,7 +38,7 @@ void rapidPlugin_template::main_loop(void* pModule)
 }
 #endif
 
-#ifdef rapidPlugin_template_override_interface
+#ifdef rapidPlugin_wifi_override_interface
 /**
  * @brief Interface handler extended functions.
  * This function is to be used for creating custom states 
@@ -48,7 +48,7 @@ void rapidPlugin_template::main_loop(void* pModule)
  * @param messageBuffer buffer to store return message
  * @return uint8_t return 0 if the function was handled, 1 if not
  */
-uint8_t rapidPlugin_template::interface(rapidFunction incoming, char messageBuffer[])
+uint8_t rapidPlugin_wifi::interface(rapidFunction incoming, char messageBuffer[])
 {
   do
   {
@@ -67,17 +67,17 @@ uint8_t rapidPlugin_template::interface(rapidFunction incoming, char messageBuff
 }
 #endif
 
-#endif // template_h
+#endif // wifi_h
 
 '''
 
 try:
   open(FILEPATH_DEPENDENCY_H, "r+")
-  print(info + '\'template.h\' already present')
+  print(info + '\'wifi.h\' already present')
 except:
-  print(warning + '\'template.h\' not present, generating default...')
+  print(warning + '\'wifi.h\' not present, generating default...')
   try:
     with open(FILEPATH_DEPENDENCY_H, 'x') as f:
       f.write(contents)
   except:
-    print(error + '\'template.h\' could not be written to')
+    print(error + '\'wifi.h\' could not be written to')

@@ -1,12 +1,12 @@
 {
-  "name": "rapidPlugin_template",
+  "name": "rapidPlugin_wifi",
   "version": "1.0.1",
   "description": "rapidPlugin for the rapidRTOS framework",
   "keywords": "rapidRTOS, FreeRTOS, RTOS, rapid, arduino",
   "repository":
   {
     "type": "git",
-    "url": "https://github.com/PCLabTools/rapidPlugin_template.git"
+    "url": "https://github.com/PCLabTools/rapidPlugin_wifi.git"
   },
   "dependencies":
   {
@@ -25,7 +25,7 @@
       "extraScript": "scripts/build.py"
   },
   "license": "GNU",
-  "homepage": "https://github.com/PCLabTools/rapidPlugin_template",
+  "homepage": "https://github.com/PCLabTools/rapidPlugin_wifi",
   "frameworks": "arduino",
   "platforms": "https://github.com/maxgerhardt/platform-raspberrypi.git"
 }

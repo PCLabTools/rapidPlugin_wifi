@@ -25,7 +25,7 @@ enum class rapidPluginErrors_t
 '''
 
 custom_errors = '''
-  // template ERRORS
+  // wifi ERRORS
   TEMPLATE_ERROR1,                  // Template error 1
   TEMPLATE_ERROR2,                  // Template error 2
   TEMPLATE_ERROR3,                  // Template error 3
@@ -69,14 +69,14 @@ try:
   with open(FILEPATH_ERRORS_H, "r") as f:
     lines = f.readlines()
     if any(custom_errors.split('\n')[1].strip() in line for line in lines):
-      print(info + '\'errors.h\' already contains template custom errors')
+      print(info + '\'errors.h\' already contains wifi custom errors')
     else:
       with open(FILEPATH_ERRORS_H, "w") as f_write:
         for line in lines:
           if line.strip() == footer.split('\n')[0].strip():
             f_write.write(custom_errors)
           f_write.write(line)
-      print(info + '\'errors.h\' updated with template custom errors')
+      print(info + '\'errors.h\' updated with wifi custom errors')
 
 except:
   print(warning + '\'errors.h\' not present, generating default...')
