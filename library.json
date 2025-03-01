@@ -1,0 +1,31 @@
+{
+  "name": "rapidPlugin_template",
+  "version": "1.0.1",
+  "description": "rapidPlugin for the rapidRTOS framework",
+  "keywords": "rapidRTOS, FreeRTOS, RTOS, rapid, arduino",
+  "repository":
+  {
+    "type": "git",
+    "url": "https://github.com/PCLabTools/rapidPlugin_template.git"
+  },
+  "dependencies":
+  {
+      "rapidRTOS": "https://github.com/PCLabTools/rapidRTOS.git"
+  },
+  "authors":
+  [
+    {
+      "name": "Larry Colvin",
+      "url": "https://github.com/PCLabTools",
+      "maintainer": true
+    }
+  ],
+  "build": 
+  {
+      "extraScript": "scripts/build.py"
+  },
+  "license": "GNU",
+  "homepage": "https://github.com/PCLabTools/rapidPlugin_template",
+  "frameworks": "arduino",
+  "platforms": "https://github.com/maxgerhardt/platform-raspberrypi.git"
+}
